@@ -25,10 +25,8 @@ fn generate_print(derive_input: &DeriveInput) -> TokenStream {
 
     };
     quote! {
-        impl Print for #name {
+        impl #name {
             #print_impl
-        }
-        impl #name{
             #indent_impl
         }
     }
@@ -68,19 +66,3 @@ fn generate_print_struct(s: &syn::DataStruct) -> proc_macro2::TokenStream {
         }
     }
 }
-
-/*pub trait Print {
-    fn print(&self, n_indent: usize);
-}
-
-impl Print for usize {
-    fn print(&self, n_indent: usize) {
-        indent(n_indent);
-        println!("{self}")
-    }
-}
-pub fn indent(level: usize) {
-    for _ in 0..level {
-        print!("  ")
-    }
-}*/
