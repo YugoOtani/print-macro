@@ -57,13 +57,11 @@ fn generate_print_struct(s: &syn::DataStruct) -> proc_macro2::TokenStream {
             self.#field.print(n_indent);
         })
     }
-    dbg!(s);
-    let type_name = stringify!(s);
     quote! {
         fn print(&self,n_indent:usize){
             Self::indent(n_indent);
             //println!(#type_name);
-            //#(#v)*
+            #(#v)*
         }
     }
 }
