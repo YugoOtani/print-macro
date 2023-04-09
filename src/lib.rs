@@ -51,12 +51,12 @@ fn generate_print_union(u: &syn::DataUnion) -> proc_macro2::TokenStream {
     }
 }
 fn generate_print_struct(s: &syn::DataStruct) -> proc_macro2::TokenStream {
-    /*let mut v = vec![];
+    let mut v = vec![];
     for field in &s.fields {
         v.push(quote! {
             self.#field.print(n_indent);
         })
-    }*/
+    }
     dbg!(s);
     let type_name = stringify!(s);
     quote! {
